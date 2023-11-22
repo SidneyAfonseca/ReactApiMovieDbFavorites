@@ -28,8 +28,8 @@ const ModalMovieDetails: React.FC<ModalMovieDetailsProps> = ({
       return false;
     }
     const movieIsFavoriteAlready = favorites
-      .map((movie) => movie.imdb_id)
-      .find((imdb_id) => imdb_id == selectedMovie?.imdb_id) as boolean;
+      .map((movie) => movie.id)
+      .find((id) => id == selectedMovie?.id) as boolean;
     if (movieIsFavoriteAlready) {
       setDisabled(true);
       return true;
@@ -43,6 +43,10 @@ const ModalMovieDetails: React.FC<ModalMovieDetailsProps> = ({
 
     const movieIsFavoriteAlready = isFavorite(selectedMovie);
     if (movieIsFavoriteAlready) {
+      console.log('passou');
+      favorites = favorites.filter((movie) => movie.id != selectedMovie.id);
+      const newfavorites = JSON.stringify([...favorites]);
+      localStorage.setItem("favorites", newfavorites);
       return;
     }
     const newfavorites = JSON.stringify([...favorites, selectedMovie]);
