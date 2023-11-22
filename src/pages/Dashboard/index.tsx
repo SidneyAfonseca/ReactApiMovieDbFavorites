@@ -1,10 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
-import { getMoviesByGenre, getPopularMovies, getTopRatedMovies, } from "../../api";
+import {
+  getMoviesByGenre,
+  getPopularMovies,
+  getTopRatedMovies,
+} from "../../api";
 import RenderMovie from "../../components/RenderMovie";
 import Typography from "../../components/Typography";
-// import NavBar from "../../components/NavBar";
 
 function Dashboard() {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -40,7 +42,6 @@ function Dashboard() {
 
   return (
     <Container>
-      {/* <NavBar /> */}
       <Row style={{ marginTop: 40 }}>
         <Typography title="Novidades da Netflix" />
         <RenderMovie movies={popularMovies} />
@@ -70,7 +71,6 @@ function Dashboard() {
         <Typography title="Filmes de Romance" />
         <RenderMovie movies={romanceMovies} />
       </Row>
-
     </Container>
   );
 }

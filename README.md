@@ -1,4 +1,4 @@
-# Atividade 04 - ReactJs - MovieDb carousel Add Favorites
+# Atividade 03 - ReactJs - MovieDb carousel
 
 ## Instalaçao
 

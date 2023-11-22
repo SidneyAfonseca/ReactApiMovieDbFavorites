@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
 const apiKey = "1fb26ac87aa6ff0175b0c78443858dba";
@@ -15,14 +14,14 @@ export const getPopularMovies = async () => {
   }
 };
 
-export const getMovieDetails = async (id?: number) => {
+export const getMovieDetails = async (movieId: any) => {
   try {
     const response = await axios.get(
-      `${apiUrl}/movie/${id}?api_key=${apiKey}`
+      `${apiUrl}/movie/${movieId}?api_key=${apiKey}`
     );
     return response.data;
   } catch (error) {
-    console.error(`Erro ao obter detalhes do filme ${id}:`, error);
+    console.error(`Erro ao obter detalhes do filme ${movieId}:`, error);
   }
 };
 
@@ -48,13 +47,13 @@ export const getMoviesByGenre = async (genreId: any) => {
   }
 };
 
-export const getRecommendedMovies = async (movieId: any) => {
+export const getMoviesRecomendationByMovieId = async (movie_id: any) => {
   try {
     const response = await axios.get(
-      `${apiUrl}/movie/${movieId}/recommendations?api_key=${apiKey}`
+      `${apiUrl}/movie/${movie_id}/recommendations?api_key=${apiKey}`
     );
     return response.data.results;
   } catch (error) {
-    console.error("Erro ao obter filmes recomendados:", error);
+    console.error(`Erro ao obter recomendações do filme ${movie_id}:`, error);
   }
 };
